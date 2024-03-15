@@ -1,0 +1,67 @@
+--Load
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/hakaiofc/Base/main/HUBORION')))()
+
+--Main Script
+local Window = OrionLib:MakeWindow({Name = "Joci018 HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroEnabled = false})
+
+
+--Valor
+_G.AutoPeso = True
+
+--Função
+function AutoFarm()
+while _G.AutoFarm == true do
+game:GetService("Players").LocalPlayer.Character.Weights.E:FireServer()
+game:GetService("Players").LocalPlayer.Character.Weights.E:FireServer()
+game:GetService("Players").LocalPlayer.Character.Weights.E:FireServer()
+game:GetService("Players").LocalPlayer.Character.Weights.E:FireServer()
+game:GetService("Players").LocalPlayer.Character.Weights.E:FireServer()
+game:GetService("Players").LocalPlayer.Character.Weights.E:FireServer()
+wait()
+end
+end
+
+
+--Valor
+_G.AutoRebirth = True
+
+--Função
+function AutoRebirth()
+while _G.AutoRebirth == true do
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Rebirth"):FireServer()
+wait()
+end
+end
+
+
+--Player
+local PlayerTab = Window:MakeTab({
+    Name = "Player",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local Section = PlayerTab:AddSection({
+    Name = "Auto-Weight"
+})
+PlayerTab:AddToggle({
+    Name = "AutoFarm",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoFarm = Value
+        AutoFarm()
+    end    
+})
+--Player-Rebirth
+local Section = PlayerTab:AddSection({
+    Name = "Auto-Rebirth"
+})
+PlayerTab:AddToggle({
+    Name = "Rebirth",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoRebirth = Value
+        AutoRebirth()
+    end    
+})
+
+
